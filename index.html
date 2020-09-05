@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WhatsApp Clone</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='yes.js'></script>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+            Some of the settings work, so be sure to check them out.
+        
+            Creator: Danilo
+            
+            UPDATES:
+              -switch between chat, status and calls.
+              -you can create groups now.(they appear at the bottom of the screen)
+              -search bar is there
+              -there is the settings page.
+              -you can delete phone calls.
+              -tap the users images to see profile
+              -loading screen (logo) added.
+              -icons updated.
+              -camera (replacement).
+        -->
+    <div id="fullCode">
+    <!--Green navigation-->
+        <nav>
+            <h3>Daniel WhatsApp 2020</h3>
+            <i class='fas fa-search' onclick="search()" id="search"></i>
+            <div id="dots" onclick="settings(1,'0')">.</div>
+            <div id = navigation>
+                <i onclick= "camera()" class="fa fa-camera" id="camera"></i>
+                <div onclick="chat()">Chats</div>
+                    <div onclick="status()">Status</div>
+                    <div onclick="calls()">Calls</div>
+            </div>
+            
+            <div onmouseleave='settings(0,"0 0 0 50%")' id="settings">
+                <p onclick="createGroup()">New Group</p>
+                <p>New Broadcast</p>
+                <p>WhatsApp Web</p>
+                <p>Marked Messages</p>
+                <p onclick=showSettings(0)>Settings</p>
+            </div>
+            <div id="searchDiv">
+                <p id="greenArrow" onclick="stopSearch()"><i class='fas fa-arrow-left'></i></p>
+                <input type="text" id="searchInp" onchange = emptySearch() placeholder=" Search...">
+            </div>
+            
+            <div id="whiteBar"></div>
+        </nav>
+    <!--end green navigation-->
+    <!--Begin Chats-->
+        <div id="others">
+            <div class="user">
+                <img onclick=showImage(images) src="images/img1.jpg" alt="photo">
+                <h3>Daniel theProgrammer</h3>
+                <p>Code Daily with Consistency is the key</p>
+                <h5>26.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user2">
+                <img onclick=showImage(images) src="images/img10.jpg" alt="photo">
+                <h3>Ovrr TechNology</h3>
+                <p>We are the Best..</p>
+                <h5>01.09.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user3">
+                <img onclick=showImage(images) src="images/img11.jpg" alt="photo">
+                <h3>Asonglefac Millenium</h3>
+                <p>Please i need to create an Admin Dashboard</p>
+                <h5>02.09.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user4">
+                <img onclick=showImage(images) src="images/img12.jpg" alt="photo">
+                <h3>Zinkeng Anne</h3>
+                <p><i class="material-icons">Good Morning Daniel TheProgrammer</i></p>
+                <h5>18.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user5">
+                <img onclick=showImage(images) src="images/img13.jpg" alt="photo">
+                <h3>Code Daily with Daniel  theProgrammer</h3>
+                <p>From Scratch we build you to be the Best</p>
+                <h5>17.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user6">
+                <img onclick=showImage(images) src="images/img14.jpg" alt="photo">
+                <h3>Joseph</h3>
+                <p><i class="material-icons">Chinese Restaurant</i></p>
+                <h5>15.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user7">
+                <img onclick=showImage(images) src="images/img6.jpg" alt="photo">
+                <h3>Mummy</h3>
+                <p>I Miss You</p>
+                <h5>12.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user8">
+                <img onclick=showImage(images) src="images/img8.jpg" alt="photo">
+                <h3>Cerullo</h3>
+                <p>I am a front end Developer</p>
+                <h5>10.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user9">
+                <img onclick=showImage(images) src="images/img6.jpg" alt="photo">
+                <h3>Roxy Cyria</h3>
+                <p id="type" style="color:green">Typing</p>
+                <h5>7.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user10">
+                <img onclick=showImage(images) src="images/img7.jpg" alt="photo">
+                <h3>Macnet Junior</h3>
+                <p><i class="material-icons">Please how do the Link Bootstrao Locally?</i></p>
+                <h5>7.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user11">
+                <img onclick=showImage(images) src="images/img8.jpg" alt="photo">
+                <h3>Samuel</h3>
+                <p>I made This 3D house today</p>
+                <h5>5.08.2020</h5>
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user12">
+                <img onclick=showImage(images) src="images/img9.jpg" alt="photo">
+                <h3>Theophilus</h3>
+                <p>How was the Contest?</p>
+                <h5>5.08.2020</h5>         
+                <div class="line"></div>
+            </div>
+        </div>
+        
+        <!--Begin Status-->
+        <div id="status">
+            <div class="user" id="userEndless">
+                <img src="images/img14.jpg" alt="photo">
+                <h3>My Status</h3>
+                <p>Just now</p>
+                <h5>05.09.2020</h5>
+                <div class="line"></div>
+            </div>
+        </div>
+        
+        
+        <!--Begin Calls-->
+        <div id="calls">
+            <div class="user" id="user2call">
+                <img src="images/img15.jpg" alt="photo">
+                <h3>Le Metro</h3>
+                <p><span style="color:green;"><i class='fas fa-arrow-left'></i></span> 05 September, 17:45</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user3call">
+                <img src="images/img3.jpg" alt="photo">
+                <h3>Emmanuel</h3>
+                <p><span style="color:green;"><i class='fas fa-arrow-right'></i></span> 04 September, 18:50</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user4call">
+                <img src="images/img3.jpg" alt="photo">
+                <h3>Itz Omen</h3>
+                <p><span style="color:green;"><i class='fas fa-arrow-left'></i></span> 03 September, 16:20</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user5call">
+                <img src="images/img1.jpg" alt="photo">
+                <h3>Ngoe Kelson</h3>
+                <p><span style='color:red;'><i class='fas fa-arrow-left'></i></span> 22 August, 21:35</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user6call">
+                <img src="images/img13.jpg" alt="photo">
+                <h3>Victor</h3>
+                <p><span style='color:red;'><i class='fas fa-arrow-right'></i></span> 21 August, 10:05</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user7call">
+                <img src="images/img15.jpg" alt="photo">
+                <h3>Brian</h3>
+                <p><span style='color:red;'><i class='fas fa-arrow-right'></i></span> 21 August, 14:20</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user8call">
+                <img src="images/img14.jpg" alt="photo">
+                <h3>Regine</h3>
+                <p><span style="color:green;"><i class='fas fa-arrow-right'></i></span> 19 August, 10:45</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user9call">
+                <img src="images/img5.jpg" alt="photo">
+                <h3>Ache</h3>
+                <p><span style='color:red;'><i class='fas fa-arrow-left'></i></span> 17 August, 7:30</p>
+                 <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user10call">
+                <img src="images/img4.jpg" alt="photo">
+                <h3>Ebai Carlis</h3>
+                <p><span style="color:green;"><i class='fas fa-arrow-right'></i></span> 13 August, 18:25</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            
+            <div class="user" id="user11call">
+                <img src="images/img18.jpg" alt="photo">
+                <h3>Guy Asong</h3>
+                <p><span style="color:green;"><i class='fas fa-arrow-right'></i></span> 1 April, 12:50</p>
+                <img src="https://imgur.com/ZGWZBo4.jpg" class="phoneImg">
+                <div class="line"></div>
+            </div>
+            <br /><br />
+        </div>
+        
+        <div id="Camera">
+            <br />
+            <h3>Your battery is low.<br><br>Please charge your phone to continue</h3>
+        </div>
+        <!--green circle-->
+        <div id="greenCircle">
+            <i class="material-icons">chat</i>
+        </div>
+        
+        
+        
+        <!--settings-->
+        <div id="settingsPage">
+            <div id="greenThing2">
+                <pre onclick=showSettings(100)> <i class='fas fa-arrow-left'></i>  Settings</pre>
+            </div>
+            <div id="realSettings">
+                <div class="user" style=top:10%;>
+                    <img src="images/img14.jpg" alt="photo">
+                    <h3></h3>
+                    <p>Hi there!. I am using WhatsApp</p>
+                    <div class="line"></div>
+                </div>
+            
+            <div class="user" style=top:30%;>
+                    <i class='fas fa-key'></i>
+                    <h3>Account</h3>
+                    <p>Security, change number.</p>
+            </div>
+            <div class="user" style=top:50%;>
+                    <i class='material-icons mess'>chat</i>
+                    <h3>Chats</h3>
+                    <p>Backup, history, groups and calls.</p>
+            </div>
+            <div class="user" style=top:70%;>
+                    <i class='fas fa-bell'></i>
+                    <h3>Notifications</h3>
+                    <p>Messages, groups and calls</p>
+            </div>
+            <div class="user" style=top:90%;>
+                    <i class="material-icons data">data_usage</i>
+                    <h3>Use of data and space</h3>
+                    <p>Security, change number.</p>
+            </div>
+            <div class="user" style=top:110%;>
+                    <i class="material-icons helpI">help_outline</i>
+                    <h3>Help</h3>
+                    <p>Questions, contact.</p>
+                    <div class="line"></div>
+            </div>
+            <div class="user" style=top:130%;>
+                    <i class='fas fa-user-friends'></i><br />
+                    <h3>Invite a friend</h3>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div id="userProfile">
+            <img src="images/img16.jpg" id="profile">
+            <img src="https://imgur.com/vi4iA7Q.jpg" id="downPath">
+        </div>
+        
+    </div>
+    
+    <!--Loading screen-->
+    <div id = loadingScreen>
+        <img src='https://imgur.com/oV1pzoE.jpg'>
+        <div id = "loadText">From <br /><span>Daniel theProgrammer</span></div>
+    </div>
+    </body>
+</html>
